@@ -4,7 +4,7 @@ const nextConfig = {
     images : {
         remotePatterns : [
             {
-                hostname : "digital-marketplace.up.railway.app",
+                hostname : "abena-openiam-docs.vercel.app",
                 pathname : "/**" ,
                 port : "" ,
                 protocol : "https",
