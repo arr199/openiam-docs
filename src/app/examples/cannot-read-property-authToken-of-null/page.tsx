@@ -1,12 +1,15 @@
 "use client";
 import { pages } from "@/lib/data";
 import Image from "next/image";
+import { headers } from "next/headers";
 
 export default function Page(): JSX.Element {
+  // const item = pages.examples.items.filter(
+  //   (item) => item.link === window.location.pathname,
+  // )[0];
   const item = pages.examples.items.filter(
-    (item) => item.link === window.location.pathname,
+    (item) => item.link === headers().get("next-url"),
   )[0];
-  // const item = pages.examples.items.filter( (item) => item.link === headers().get("next-url")  )[0]
   return (
     <div className="px-12 py-8 max-w-3xl ">
       <div>
