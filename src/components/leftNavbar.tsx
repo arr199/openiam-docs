@@ -15,9 +15,7 @@ import { useState } from "react";
 import { useTheme } from "next-themes";
 
 export function LeftNavbar(): React.ReactElement {
-  const [currentPage, setCurrentPage] = useState(
-    window.location.pathname ?? "",
-  );
+  const [currentPage, setCurrentPage] = useState("/");
   const theme = useTheme();
 
   return (

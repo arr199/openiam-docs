@@ -15,7 +15,6 @@ export default function Page(): JSX.Element {
         OpenIAM is an identity and access management platform providing end
         customer with the following capabilities:
       </p>
-
       <p className="mt-4">
         For more information visit
         <Link
