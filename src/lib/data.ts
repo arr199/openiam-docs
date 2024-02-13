@@ -1,47 +1,67 @@
-interface Page  {
-    name : string 
-    items : Item[]
-    label : string
-   
-   }
-   
-   interface Item {
-     name : string 
-     link : string
-   }
-   
-   export const pages : Page[] = [
-    // INTRODUCTION 
-    { 
-       name : "introduction",
-       label : "Introduction" ,
-       items : [
-         { name : "What is openiam" ,  link : "/" 
-         }
-       ] ,  
+export interface Page {
+  name: string;
+  items: Item[];
+  label: string;
+  path: string;
+}
+
+interface Item {
+  label: string;
+  link: string;
+  imageUrl?: string;
+}
+
+export interface Pages {
+  home: Page;
+  gettingStarted: Page;
+  examples: Page;
+}
+
+export const pages: Pages = {
+  home: {
+    name: "introduction",
+    label: "Introduction",
+    path: "/",
+    items: [{ label: "What is OpenIAM", link: "/" }],
+  },
+  gettingStarted: {
+    name: "getting-started",
+    label: "Getting Started",
+    path: "/getting-started",
+    items: [
+      {
+        label: "Login into the Administration Console",
+        link: "/getting-started/login-into-the-administration-console",
       },
-    //   GETTING STARTED
-      { 
-       name : "getting-started" ,
-       label : "Getting Started",
-       items : [
-         { name : "Accessing openiam" ,  link : "/getting-started/accessing-openiam" },
-         { name : "Creating an User" ,  link : "/getting-started/creating-a-user" },
-         { name : "Modifying an user" ,  link : "/getting-started/modifying-user" },
-         { name : "Deleting an User" ,  link : "/getting-started/delete-user" },
-         { name : "Removing roles" ,  link : "/getting-started/removing-roles" },
-       ] ,  
+      { label: "Searching users", link: "/getting-started/searching-users" },
+      {
+        label: "Modifying existing users information",
+        link: "/getting-started/modifying-existing-users-information",
       },
-    
-      //   COMMON USER ISSUES
-      { 
-       name : "common-user-issues" ,
-       label : "Common User Issues" ,
-       items : [
-         { name : "Add user" ,  link : "installation" } ,
-         { name : "Delete user" ,  link : "installation" },
-         { name : "Update user" ,  link : "installation" }
-       ] ,  
+      { label: "Creating a User", link: "/getting-started/creating-a-user" },
+      {
+        label: "Reviewing user activity log",
+        link: "/getting-started/reviewing-user-activity-log",
       },
-   
-   ]
+    ],
+  },
+  examples: {
+    name: "example",
+    label: "Common User Errors",
+    path: "/examples",
+    items: [
+      {
+        label: "Cannot read property 'authToken' of null",
+        link: "/examples/cannot-read-property-authToken-of-null",
+        imageUrl: "/error_images/Cannot read property 'authToken' of null.jpeg",
+      },
+
+      {
+        label: "Unable to SSO to this application as you do not have access",
+        link: "/examples/unable-to-SSO-to-this-application-as-you-do-not-have-access",
+        imageUrl:
+          "/error_images/unable-to-SSO-to-this-application-as-you-do-not-have-access.png",
+      },
+    ],
+  },
+};
