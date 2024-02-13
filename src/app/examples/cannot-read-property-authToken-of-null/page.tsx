@@ -1,4 +1,3 @@
-"use client";
 import { pages } from "@/lib/data";
 import Image from "next/image";
 import { headers } from "next/headers";
