@@ -1,3 +1,6 @@
+import { Description } from "@/components/items/description";
+import { Title } from "@/components/items/title";
+import { Wrapper } from "@/components/items/wrapper";
 import { pages } from "@/lib/data";
 import { headers } from "next/headers";
 import Link from "next/link";
@@ -7,14 +10,12 @@ export default function Page(): JSX.Element {
     (item) => item.link === headers().get("next-url"),
   )[0];
   return (
-    <div className="px-12 pt-8 max-w-3xl ">
-      <div>
-        <h1 className="text-3xl font-bold capitalize ">{item?.label}</h1>
-      </div>
-      <p className="mt-10">
-        OpenIAM is an identity and access management platform providing end
-        customer with the following capabilities:
-      </p>
+    <Wrapper>
+      <Title text={item?.label} />
+      <Description
+        text="OpenIAM is an identity and access management platform providing end
+        customer with the following capabilities:"
+      />
 
       <p className="mt-4">
         For more information visit
@@ -26,6 +27,6 @@ export default function Page(): JSX.Element {
           openaim documentation &rarr;
         </Link>
       </p>
-    </div>
+    </Wrapper>
   );
 }

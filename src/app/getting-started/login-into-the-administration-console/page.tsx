@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { pages } from "@/lib/data";
 import { headers } from "next/headers";
+import { Title } from "@/components/items/title";
+import { Description } from "@/components/items/description";
+import { Wrapper } from "@/components/items/wrapper";
 
 export default function Page(): JSX.Element {
   const item = pages.gettingStarted.items.filter(
@@ -8,14 +11,12 @@ export default function Page(): JSX.Element {
   )[0];
 
   return (
-    <div className="px-12 pt-8 max-w-3xl ">
-      <div>
-        <h1 className="text-3xl font-bold capitalize ">{item?.label}</h1>
-      </div>
-      <p className="mt-10">
-        OpenIAM is an identity and access management platform providing end
-        customer with the following capabilities:
-      </p>
+    <Wrapper>
+      <Title text={item?.label} />
+      <Description
+        text="OpenIAM is an identity and access management platform providing end
+        customer with the following capabilities:"
+      />
       <ul className="list-disc mt-2 pl-4">
         <li>
           Unified view of identity across all application (both on-premise and
@@ -38,6 +39,6 @@ export default function Page(): JSX.Element {
           openaim documentation &rarr;
         </Link>
       </p>
-    </div>
+    </Wrapper>
   );
 }

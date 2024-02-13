@@ -1,6 +1,9 @@
 import { pages } from "@/lib/data";
-import Image from "next/image";
 import { headers } from "next/headers";
+import { Description } from "@/components/items/description";
+import { PreviewImage } from "@/components/items/image";
+import { Title } from "@/components/items/title";
+import { Wrapper } from "@/components/items/wrapper";
 
 export default function Page(): JSX.Element {
   // const item = pages.examples.items.filter(
@@ -10,17 +13,10 @@ export default function Page(): JSX.Element {
     (item) => item.link === headers().get("next-url"),
   )[0];
   return (
-    <div className="px-12 py-8 max-w-3xl ">
-      <div>
-        <h1 className="text-3xl font-bold capitalize ">{item?.label}</h1>
-      </div>
-      <p className="mt-4">
-        The following error is displayed when the user had an expired password.
-      </p>
-
-      <div className="mt-10 w-120 aspect-square relative">
-        <Image className="rounded" fill src={item?.imageUrl ?? ""} alt="" />
-      </div>
-    </div>
+    <Wrapper>
+      <Title text={item?.label} />
+      <Description text="The following error is displayed when the user had an expired password." />
+      <PreviewImage url={item?.imageUrl ?? ""} />
+    </Wrapper>
   );
 }

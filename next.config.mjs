@@ -15,12 +15,6 @@ const nextConfig = {
                 port : "3400" ,
                 protocol : "http",
             },
-            { 
-                hostname : "digital-marketplace-ghencuyfzq-nw.a.run.app",
-                pathname : "**" ,
-                port : "" ,
-                protocol : "https",
-            },
         ]
     }
 }

@@ -1,3 +1,6 @@
+import { Description } from "@/components/items/description";
+import { Title } from "@/components/items/title";
+import { Wrapper } from "@/components/items/wrapper";
 import Link from "next/link";
 export default function Page({
   params,
@@ -5,14 +8,14 @@ export default function Page({
   params: Record<string, string>;
 }): React.ReactElement {
   return (
-    <div className="px-12 pt-8 max-w-3xl ">
-      <div>
-        <h1 className="text-3xl font-bold capitalize ">What is OpenIAM</h1>
-      </div>
-      <p className="mt-10">
+    <Wrapper>
+      <Title text="What is OpenIAM"></Title>
+      <Description
+        text="
         OpenIAM is an identity and access management platform providing end
         customer with the following capabilities:
-      </p>
+      "
+      />
       <ul className="list-disc mt-2 pl-4">
         <li>
           Unified view of identity across all application (both on-premise and
@@ -35,6 +38,6 @@ export default function Page({
           openaim documentation &rarr;
         </Link>
       </p>
-    </div>
+    </Wrapper>
   );
 }
